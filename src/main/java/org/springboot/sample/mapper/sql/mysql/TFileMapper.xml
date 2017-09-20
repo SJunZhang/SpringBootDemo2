@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springboot.sample.mapper.TFileMapper">
+
+	<resultMap id="tfileMap" type="org.springboot.sample.entity.TFile">
+		<id property="id" column="ID" />
+		<result property="fileContent" column="FILE_CONTENT" />
+		<result property="fileName" column="FILE_NAME" />
+		<result property="fileSuffix" column="FILE_SUFFIX" />
+	</resultMap>
+
+	<select id="selectById" resultMap="tfileMap">
+		SELECT *
+		FROM t_file
+		WHERE ID =
+		#{id}
+	</select>
+
+	<!-- 插入要返回自动递增的主键，要添加 keyProperty="id"参数-->
+	<insert id="insertFile" useGeneratedKeys="true" keyProperty="id" parameterType="org.springboot.sample.entity.TFile">
+		INSERT
+		INTO t_file(FILE_CONTENT,FILE_NAME,FILE_SUFFIX)
+		VALUES
+		(#{fileContent},#{fileName},#{fileSuffix})
+	</insert>
+
+</mapper> 
