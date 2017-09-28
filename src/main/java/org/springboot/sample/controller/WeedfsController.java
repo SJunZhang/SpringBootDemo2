@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * weedfs文件上传的UI层
+ * weedfs文件上传下载的UI层
  * @author DELL
  *
  */
@@ -27,7 +27,13 @@ public class WeedfsController {
 		return weedfsFileService.doUpload(request);
 	}
 	
-	
+	/**
+	 * 参数id是t_weedfs_file表的主键id
+	 * @param response
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value="download/{id}",method=RequestMethod.GET)
 	public HttpServletResponse download(HttpServletResponse response,@PathVariable("id") String id) throws Exception{
 		Long lid = Long.parseLong(id);

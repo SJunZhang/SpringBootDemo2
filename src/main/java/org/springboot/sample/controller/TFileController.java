@@ -22,7 +22,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 /**
- * 写的文件存储到数据库的代码，上传下载
+ * 写的文件存储到数据库的代码，上传下载。注意：mysql数据库中存储文件用blob类型，在Javabean中用byte[]类型
  * @author DELL
  *
  */

@@ -77,7 +77,7 @@ public class WeedfsFileServiceImpl implements WeedfsFileService {
 					tWeedfsFile.setUuidName(uuidfileName);
 					
 					tWeedfsFileMapper.insertFile(tWeedfsFile);
-					entityId=tWeedfsFile.getId();
+					entityId=tWeedfsFile.getId();//获取当前插入数据的主键id
 					//删除临时文件
 					if(dest.exists()){
 						dest.delete();
