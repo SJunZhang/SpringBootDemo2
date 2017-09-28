@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springboot.sample.mapper.TWeedfsFileMapper">
+
+	<resultMap id="tWeedfsFileMap" type="org.springboot.sample.entity.TWeedfsFile">
+		<id property="id" column="ID" />
+		<result property="fid" column="FID" />
+		<result property="fileName" column="FILE_NAME" />
+		<result property="uuidName" column="UUID_NAME" />
+	</resultMap>
+
+	<select id="selectById" resultMap="tWeedfsFileMap">
+		SELECT *
+		FROM t_weedfs_file
+		WHERE ID =
+		#{id}
+	</select>
+
+	<!-- 插入要返回自动递增的主键，要添加 keyProperty="id"参数-->
+	<insert id="insertFile" useGeneratedKeys="true" keyProperty="id" parameterType="org.springboot.sample.entity.TWeedfsFile">
+		INSERT
+		INTO t_weedfs_file(FID,FILE_NAME,UUID_NAME)
+		VALUES
+		(#{fid},#{fileName},#{uuidName})
+	</insert>
+
+</mapper> 
